@@ -30,7 +30,7 @@ jobs:
           pipenv run mkdocs build
           touch site/.nojekyll
 
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: __home__
           path: site
@@ -48,7 +48,7 @@ jobs:
         run: cd cpp && make ci-docs
 
       - run: tar -czf docs-cpp.tgz __docs__/cpp
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: docs-cpp
           path: docs-cpp.tgz
@@ -70,7 +70,7 @@ jobs:
           yarn typedoc
 
       - run: tar -czf docs-typescript.tgz __docs__/typescript
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: docs-typescript
           path: docs-typescript.tgz
@@ -88,7 +88,7 @@ jobs:
       - run: pip install pipenv
       - run: make -C python docs
       - run: tar -czf docs-python.tgz __docs__/python
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: docs-python
           path: docs-python.tgz
@@ -116,7 +116,7 @@ jobs:
 
       # https://github.com/actions/upload-artifact/issues/85
       - run: tar -czf docs-swift.tgz __docs__/swift
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: docs-swift
           path: docs-swift.tgz
